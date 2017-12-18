@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="commons-httpclient-3.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../jars/commons-httpclient-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/commons-fileupload-1.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/commons-io-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/poi-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/poi-ooxml-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/xmlbeans-2.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/commons-collections4-4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/poi-ooxml-schemas-3.17.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
