@@ -2,19 +2,11 @@ package com.test.applications.qmclotserver;
 /**
  * Created by xiapf on 2017/3/28 0028.
  */
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.InputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
+
+import java.io.*;
 
 public class readFile {
     /**

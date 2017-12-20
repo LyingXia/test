@@ -70,7 +70,7 @@ public class otherPost {
         }
     }
     
-    public  void otherRqt (String message){
+    private   void otherRqt (String message){
         testPost res1 = new testPost();
         /*System.out.println("{"+message+"}");*/
         String url = "http://192.168.1.34:8080/lotserver/test/sendRequest";

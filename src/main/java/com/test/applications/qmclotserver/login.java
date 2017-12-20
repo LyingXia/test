@@ -34,7 +34,7 @@ public class login {
         }
     }
 
-    public  String  login(String message){
+    public   String  login(String message){
         testPost tp = new testPost();
         String url = "http://192.168.1.34:8080/lotserver/test/sendRequest";
         String data = "content={\"command\":\"login\"," +
@@ -49,7 +49,7 @@ public class login {
         return s1;
     }
 
-    public  String  login(JSONObject message){
+    public   String  login(JSONObject message){
         testPost tp = new testPost();
         JSONObject login = new JSONObject();
         login.put("command","login");

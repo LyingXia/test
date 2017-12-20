@@ -2,8 +2,6 @@ package com.test.applications.qmclotserver;
 
 import net.sf.json.JSONObject;
 
-import java.io.File;
-
 public class easyFun {
     public  String getToken(String loginmessage){
         System.out.println(loginmessage);
@@ -68,33 +66,5 @@ public class easyFun {
         return result;
     }
 
-    public String login(File file){
-        readExcel r1 = new readExcel();
-        testPost tp = new testPost();
-        String message = readExcel.readExcelReturnArr(file);
-        String url = "http://192.168.1.34:8080/lotserver/test/sendRequest";
-        String data = "content={"+message+"}&urlAddress=http://127.0.0.1:8080/lotserver/lotserverServlet";
-        String resp1 = tp.transport(url,data);
-        return getToken(resp1);
-    }
-
-    public String arrArrToArr(String[][] resp){
-        String message="";
-        //System.out.println(resp);
-        for(int i=1; i < resp.length; i++) {
-            for (int j = 0; j < resp[0].length; j++) {
-                if (j == resp[0].length - 1) {
-                    message = message + "\"" + resp[0][j] + "\":\"" + resp[i][j] + "\"";
-                   /*下面的方法是拼接成a=a&b=b的*/
-                    // message = message +  resp[0][j] + "=" + resp[i][j] ;
-                } else {
-                    message = message + "\"" + resp[0][j] + "\":\"" + resp[i][j] + "\",";
-                   /*下面的方法是拼接成a=a&b=b的*/
-                    //message = message +  resp[0][j] + "=" + resp[i][j] + "&";
-                }
-            }
-        }
-        return message;
-    }
 
 }

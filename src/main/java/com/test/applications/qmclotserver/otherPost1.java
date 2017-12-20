@@ -52,7 +52,7 @@ public class otherPost1 {
     }
 
 
-    public  void otherRqt (JSONObject message){
+    private  void otherRqt (JSONObject message){
         testPost res1 = new testPost();
         /*System.out.println("{"+message+"}");*/
         String url = "http://192.168.1.34:8080/lotserver/test/sendRequest";
@@ -70,5 +70,30 @@ public class otherPost1 {
         //System.out.println(s);
         String s1 = res1.transport(url,data);
         System.out.println(s1+"\n");
+    }
+
+    public void otherSedRqt(File file){
+        String[][] resp = readExcel.readExcelReturnarrArr(file);
+        String message = "";
+        String url = "";
+        for(int i=1; i < resp.length; i++){
+            for (int j=0; j < resp[0].length; j++) {
+                if (j==resp[0].length-1){
+                    message = message +  resp[0][j] + "=" + resp[i][j];
+                }else if (resp[0][j] == "url") {
+                    url = url + resp[0][j] + "=" + resp[i][j];
+                }else{
+                    message = message +  resp[0][j] + "=" + resp[i][j] + "&";
+                }
+            }
+            otherSedRqt(url,message);
+        }
+    }
+
+    private void otherSedRqt(String url,String message){
+        testPost tp = new testPost();
+        String s = tp.transport(url, message);
+        System.out.println(s+"\n");
+
     }
 }

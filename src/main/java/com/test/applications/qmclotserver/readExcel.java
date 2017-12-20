@@ -82,13 +82,7 @@ public class readExcel {
         }
         return  b;
     }
-    
-    public static String readExcelReturnArr(File file){
-       String[][] arr = readExcelReturnarrArr(file);
-       easyFun ez = new easyFun();
-       String message=ez.arrArrToArr(arr);
-       return message;
-    }
+
 
     public static void main(String[] args) throws JSONException {
 //       File file = new File("C:\\Users\\user\\Desktop\\Desktop\\phone.xlsx");
@@ -99,6 +93,7 @@ public class readExcel {
        //json传递模式
         otherPost1 op1 = new otherPost1();
         op1.otherRqt(file);
+        op1.otherSedRqt(file);
 
     }
 }

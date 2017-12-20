@@ -1,9 +1,8 @@
 package com.test.sometest; /**
  * Created by xiapf on 2017/3/7 0007.
  */
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 //import org.openqa.selenium.firefox.*;
 public class testSelenium {
