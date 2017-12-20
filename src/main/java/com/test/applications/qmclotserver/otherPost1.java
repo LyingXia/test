@@ -78,15 +78,23 @@ public class otherPost1 {
         String url = "";
         for(int i=1; i < resp.length; i++){
             for (int j=0; j < resp[0].length; j++) {
-                if (j==resp[0].length-1){
+                if (resp[0][j].equals("url")){
+                    url = url + resp[i][j];
+                }else if (j==resp[0].length-1) {
                     message = message +  resp[0][j] + "=" + resp[i][j];
-                }else if (resp[0][j] == "url") {
-                    url = url + resp[0][j] + "=" + resp[i][j];
                 }else{
                     message = message +  resp[0][j] + "=" + resp[i][j] + "&";
                 }
             }
-            otherSedRqt(url,message);
+            if (message.lastIndexOf("&") == message.length()-1) {
+                message = message.substring(0,message.length()-1);
+                System.out.println("post:"+url+"\t\n"+message);
+                otherSedRqt(url, message);
+                message = "";
+                url="";
+            }else{
+
+            }
         }
     }
 

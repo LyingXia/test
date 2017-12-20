@@ -86,13 +86,13 @@ public class readExcel {
 
     public static void main(String[] args) throws JSONException {
 //       File file = new File("C:\\Users\\user\\Desktop\\Desktop\\phone.xlsx");
-        File file = new File("C:\\Users\\user\\Desktop\\test.xlsx");
+        File file = new File("C:\\Users\\user\\Desktop\\1.xlsx");
        /* 字符串传递模式
         otherPost op  = new otherPost();
         op.otherRqt(file);*/
        //json传递模式
         otherPost1 op1 = new otherPost1();
-        op1.otherRqt(file);
+        //op1.otherRqt(file);
         op1.otherSedRqt(file);
 
     }
