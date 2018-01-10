@@ -25,11 +25,11 @@ public class testSele {
   @Before
   public void setUp() throws Exception{
     // 火狐和谷歌两个不同的浏览器的启动方式需要的配置
-    System.setProperty("webdriver.chrome.driver","C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver","D:\\work\\file\\这个文件夹 今天开始属于我\\新人工作常用软件\\chromedriver.exe");
     //System.setProperty("webdriver.firefox.bin","D:\\Mozilla Firefox\\firefox.exe");
     driver = new ChromeDriver();
     //driver = new FirefoxDriver();
-    baseUrl = "http://192.168.1.57:8081";
+    baseUrl = "http://192.168.1.34:8081";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
