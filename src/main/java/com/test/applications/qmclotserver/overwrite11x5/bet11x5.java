@@ -24,7 +24,7 @@ public class bet11x5 {
     }
     public static void main(String[] args){
         renxuanTwo rxt = new renxuanTwo();
-        String phase = "2018010911";
+        String phase = "2018011230";
         String multiplue = "2";
         String lotNo = "2801";
         rxt.singleBet2(phase,multiplue,lotNo);
