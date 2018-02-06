@@ -73,7 +73,7 @@ public class otherPost {
     private   void otherRqt (String message){
         testPost res1 = new testPost();
         /*System.out.println("{"+message+"}");*/
-        String url = "http://192.168.1.34:8080/lotserver/test/sendRequest";
+        String url = "http://192.168.1.31:8080/lotserver/test/sendRequest";
         /*String url = "http://192.168.1.35:8080/lottery-order/"*/
         String data = "content={"+message+"}&urlAddress=http://127.0.0.1:8080/lotserver/lotserverServlet";
         System.out.println(data);

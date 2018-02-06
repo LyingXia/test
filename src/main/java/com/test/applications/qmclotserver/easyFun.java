@@ -90,5 +90,8 @@ public class easyFun {
             System.out.println(tp.transport(url,"content="+message.toString()+ "&urlAddress=http://127.0.0.1:8080/lotserver/lotserverServlet"));
         }
     }
-
+    public static void main(String args[]){
+        easyFun ez = new easyFun();
+        ez.register("xpftestblack",50,"ltcp");
+    }
 }

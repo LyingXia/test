@@ -1,6 +1,4 @@
 package com.test.arr;
-import java.util.Arrays;
-import com.test.sometest.*;
 /**
  * Created by xiapf on 2017/3/24 0024.
  */

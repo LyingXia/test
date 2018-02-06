@@ -36,7 +36,7 @@ public class login {
 
     public   String  login(String message){
         testPost tp = new testPost();
-        String url = "http://192.168.1.34:8080/lotserver/test/sendRequest";
+        String url = "http://192.168.1.31:8080/lotserver/test/sendRequest";
         String data = "content={\"command\":\"login\"," +
                 "\"platform\":\"android\"," +
                 "\"imei\":\"3434343434534534\"," +
@@ -59,7 +59,7 @@ public class login {
         login.put("machineId","HTC Desire");
         login.put("channel","1");
         login.putAll(message);
-        String url = "http://192.168.1.34:8080/lotserver/test/sendRequest";
+        String url = "http://192.168.1.31:8080/lotserver/test/sendRequest";
         String data ="content=" +login.toString()+"&urlAddress=http://127.0.0.1:8080/lotserver/lotserverServlet" ;
         //System.out.println(data);
         String s1 = tp.transport(url,data);

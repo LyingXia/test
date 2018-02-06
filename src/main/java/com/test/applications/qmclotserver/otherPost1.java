@@ -16,11 +16,16 @@ public class otherPost1 {
         JSONObject b = new JSONObject();
         JSONObject c = new JSONObject();
         JSONObject d = new JSONObject();
+        JSONObject e = new JSONObject();
        // b.put("a",new int[] {111,222});
         //System.out.println(resp);
         for(int i=1; i < resp.length; i++){
             for (int j=0; j < resp[0].length; j++){
-                if(resp[0][j].equals("userName")  || resp[0][j].equals("password")){
+                if (resp[0][j].equals("productName")){
+
+                    e.put(resp[0][j],resp[i][j]);
+
+                } else if(resp[0][j].equals("userName")  || resp[0][j].equals("password")){
 
                    b.put(resp[0][j],resp[i][j]);
 
@@ -38,14 +43,17 @@ public class otherPost1 {
             }
             if (b.containsKey("userName") && b.containsKey("password") ){
                 easyFun ez = new easyFun();
+                b.putAll(e);
                 actoken = ez.getToken(b);
                 userno = ez.getuserNo(b);
                 a.put("userNo",userno);
                 a.put("accessToken",actoken);
+                a.putAll(e);
                 otherRqt(a);
             }else{
                 a.putAll(c);
                 a.putAll(d);
+                a.putAll(e);
                 otherRqt(a);
             }
         }
@@ -55,7 +63,7 @@ public class otherPost1 {
     private  void otherRqt (JSONObject message){
         testPost res1 = new testPost();
         /*System.out.println("{"+message+"}");*/
-        String url = "http://192.168.1.34:8080/lotserver/test/sendRequest";
+        String url = "http://192.168.1.31:8080/lotserver/test/sendRequest";
         /*String url = "http://192.168.1.35:8080/lottery-order/"*/
         String data = "content="+message.toString()+ "&urlAddress=http://127.0.0.1:8080/lotserver/lotserverServlet";
         System.out.println(data);
