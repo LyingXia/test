@@ -10,7 +10,7 @@ public class bet11x5 {
     testPost tp = new testPost();
     allBetCode abc = new allBetCode();
     public void bet11x5Bysingle(String lotNo,String phase,String multiple,String betcode){
-        String url = "http://192.168.1.34:8080/lotserver/test/sendRequest";
+        String url = "http://192.168.1.31:8080/lotserver/test/sendRequest";
         JSONObject bet = abc.betpost();
         String amount = Integer.toString(Integer.parseInt(multiple)*200);
         bet.put("lotNo",lotNo);

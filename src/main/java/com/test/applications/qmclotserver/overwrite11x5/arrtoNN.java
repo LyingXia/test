@@ -15,24 +15,21 @@ public class arrtoNN {
     //arr_len为原始数组的长度，为定值
     public void combine_increase(String[] arr, int start, int[] result, int count, int NUM, int arr_len) {
         ArrayList a = new ArrayList();
-        Object[] c = new Object[NUM];
         for (int i = start; i < arr_len + 1 - count; i++) {
             result[count - 1] = i;
             if (count - 1 == 0) {
                 for (int j = NUM - 1; j >= 0; j--) {
                     a.add(arr[result[j]]);
-                    System.out.println(a);
+                    //System.out.println(a);
                 }
                 System.out.println(a);
-                c=a.toArray();
-                b.add(c);
             } else {
                 combine_increase(arr, i + 1, result, count - 1, NUM, arr_len);
             }
             a.clear();
         }
         System.out.println(b);
-        //if(b.size() =  )
+        //if(b.size() = )
     }
 /*    //arr为原始数组
     //start为遍历起始位置

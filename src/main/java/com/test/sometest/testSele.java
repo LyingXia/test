@@ -29,7 +29,7 @@ public class testSele {
     //System.setProperty("webdriver.firefox.bin","D:\\Mozilla Firefox\\firefox.exe");
     driver = new ChromeDriver();
     //driver = new FirefoxDriver();
-    baseUrl = "http://192.168.1.34:8081";
+    baseUrl = "http://192.168.1.31:8081";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
