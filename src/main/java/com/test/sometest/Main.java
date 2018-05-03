@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello World!");
+  /*      System.out.println("Hello World!");
         Cat cat=new Cat();
         getDesc desc=new getDesc();
         desc.revInt(1234);
@@ -16,6 +16,16 @@ public class Main {
         //com.test.sometest.testSelenium t1 = new com.test.sometest.testSelenium();
         //t1.testsele("https://www.baidu.com");
         testSele t2 = new testSele();
+
+        //compareTo 小返回-1.大返回1，相同返回0
+        BigDecimal drawBalance = BigDecimal.valueOf(6);
+        System.out.println(BigDecimal.ZERO);
+        System.out.println(drawBalance);
+        System.out.println(drawBalance.compareTo(BigDecimal.ZERO));*/
+
+
+        String dailyLottery_url = "192.168.30.36:8080/cardGame/activity/dailyLottery";
+
     }
 }
 

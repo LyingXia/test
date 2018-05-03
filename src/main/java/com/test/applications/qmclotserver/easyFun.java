@@ -3,11 +3,19 @@ package com.test.applications.qmclotserver;
 import net.sf.json.JSONObject;
 
 public class easyFun {
+    testPost tp = new testPost();
     /*将拼好的JSONObject给换成字符串发送给lotserver*/
     public String JsonToLotserverCommond(JSONObject message){
-        String s = "content="+message.toString()+ "&urlAddress=http://127.0.0.1:8080/lotserver/lotserverServlet";
+        String s = "";
+        if (message.getString("productName").contains("lz")||message.getString("productName").contains("lt")||message.getString("productName").contains("yc")) {
+            s = "content=" + message.toString() + "&urlAddress=http://127.0.0.1:8080/lotserver/lotserverServlet";
+        }else {
+            //上面是zt的 ，下面是qm的
+            s = "content=" + message.toString() + "&urlAddress=http://127.0.0.1:8081/lotserver/lotserverServlet";
+        }
         return s;
     }
+
 
     /*将返回的字符串结果强制转成JSONObject以方便取值*/
     public JSONObject StringToJson(String s){
@@ -89,8 +97,15 @@ public class easyFun {
     /*用户注册接口*/
     public void register(String username,String password,String productName){
         JSONObject message = new JSONObject();
-        testPost tp = new testPost();
-        String url = "http://192.168.1.11/lotserver/test/sendRequest";
+        String url="";
+        if (productName.contains("ltcp")  || productName.contains("lzcp")) {
+            url = "http://192.168.1.31:8080/lotserver/test/sendRequest";
+        }else if(productName.contains("yc")&&productName.contains("cp")) {
+            url = "http://192.168.30.34:8080/lotserver/test/sendRequest";
+        }else{
+            url = "http://192.168.1.45:8081/lotserver/test/sendRequest";
+        }
+        //上面是zt的  下面是qm的
         message.put("command","register");
         message.put("platform","android");
         message.put("imei","3434343434534534");
@@ -103,10 +118,18 @@ public class easyFun {
         System.out.println(message.toString());
         String resp = tp.transport(url,JsonToLotserverCommond(message));
         System.out.println(resp);
-        //String userNo = StringToJson(resp,"userNo");
+//        String result = StringToJson(resp,"result");
+//        String userNo = StringToJson(result,"userNo");
         //加入投注白名单和充值的接口先备注上，以后用的时候再放开
         //inserIntoWhite(userNo,"300","ltcp");
         //addMoney(userNo);
+       /* String join_url = "http://192.168.30.36:8080/cardGame/activity/join";
+        String joinClick_url = "http://192.168.30.36:8080/cardGame/activity/joinClick";
+        String data = "parameter={\"command\":\"activity/dailyLottery\",\"userno\":\""+userNo+"\",\"token\":\"\",\"imei\":\"\",\"platform\":\"html\",\"version\":\"\",\"productName\":\"yccp\",\"sourceFrom\":\"\"}";
+        String s = tp.transport(join_url,data);
+        String t = tp.transport(joinClick_url,data)
+        System.out.println(s);
+        System.out.println(t);*/
     }
     /*用户添加白名单接口*/
     public void inserIntoWhite(String userno,String level,String productname){
@@ -117,17 +140,15 @@ public class easyFun {
         */
         String message = "supportlottype=all&level="+level+"&userno="+userno+"&productname="+productname+"&memo=测试&&type=1&status=1";
         String url = "http://192.168.1.35:8080/lottery-order/betWhiteList/addAll";
-        testPost tp = new testPost();
         System.out.println(tp.transport(url,message));
     }
     /*用户加钱接口，模拟的是mgr的人工充值过程*/
-    public  void addMoney(String userno){
+    public  void addMoney(String userno,String forDraw,String amount){
         //貌似account没有直接给用户加钱的接口，有也特么的需要payid  我哪有啊
-        testPost tp = new testPost();
         String url = "http://192.168.1.35:8080/lottery-account/userAccountAdd/addMoney";
         String url1 = "http://192.168.1.35:8080/lottery-account/userAccountAdd/audit";
         //1是可以提现，0是不可以提现，amount的分的单位
-        String message = "userno="+userno+"&amount=10000&forDraw=0&creator=chen&memo=test&type=0";
+        String message = "userno="+userno+"&amount="+amount+"&forDraw="+forDraw+"&creator=chen&memo=test&type=0";
         String resp = tp.transport(url,message);
         System.out.println(resp);
         JSONObject res = new JSONObject().fromObject(resp);
@@ -139,6 +160,15 @@ public class easyFun {
         String resp1 = tp.transport(url1,message1);
         System.out.println(resp1);
     }
+
+    /* 扣除用户钱的接口，但是有个问题是  这个扣得钱不能大于用户 */
+    public void deductMoney(String userno){
+        String url = "http://192.168.1.35:8080/lottery-account/account/deductMoney";
+        String message = "userno="+userno+"&amount=10000&memo=xpf扣除";
+        String resp = tp.transport(url,message);
+        System.out.println(resp);
+    }
+
 
     /*注册N多个的用户*/
     public void registerN(String username,int num,String password,String productName) {
@@ -155,11 +185,14 @@ public class easyFun {
 
     public static void main(String args[]){
         easyFun ez = new easyFun();
-        ez.registerN("xpftestzhh",50,"123456","ltcp");
+        //记得看,记得最大限制500
+        ez.registerN("xpftestjoin",100,"123456","yccp");
+
         /*ez.inserIntoWhite("20180205Z00038499","300","ltcp");
         JSONObject s = ez.StringToJson("{\"errorCode\":\"0000\",\"message\":\"查询成功\",\"result\":{\"batchCode\":\"2018018\",\"remainSeconds\":\"204568\",\"forwardEndTime\":\"2100\",\"endBetTimeFormat\":\"02-11（周日）19:25\"}}");
         String s1 = s.getJSONObject("result").getString("batchCode");
         System.out.println(s1);*/
-       //ez.addMoney("2016092000352139");
+//       ez.addMoney("20180202Z00033474","1","1200032");
+//        ez.deductMoney("20180417Z00170474");
         }
         }
