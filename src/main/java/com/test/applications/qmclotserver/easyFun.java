@@ -1,6 +1,7 @@
 package com.test.applications.qmclotserver;
 
 import net.sf.json.JSONObject;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 public class easyFun {
     testPost tp = new testPost();
@@ -119,10 +120,10 @@ public class easyFun {
         String resp = tp.transport(url,JsonToLotserverCommond(message));
         System.out.println(resp);
 //        String result = StringToJson(resp,"result");
-//        String userNo = StringToJson(result,"userNo");
+//       String userNo = StringToJson(result,"userNo");
         //加入投注白名单和充值的接口先备注上，以后用的时候再放开
-        //inserIntoWhite(userNo,"300","ltcp");
-        //addMoney(userNo);
+//        inserIntoWhite(userNo,"300","ltcp");
+//        addMoney(userNo,"1","10000");
        /* String join_url = "http://192.168.30.36:8080/cardGame/activity/join";
         String joinClick_url = "http://192.168.30.36:8080/cardGame/activity/joinClick";
         String data = "parameter={\"command\":\"activity/dailyLottery\",\"userno\":\""+userNo+"\",\"token\":\"\",\"imei\":\"\",\"platform\":\"html\",\"version\":\"\",\"productName\":\"yccp\",\"sourceFrom\":\"\"}";
@@ -138,15 +139,29 @@ public class easyFun {
         http:192.168.1.35:8080/lottery-order/betWhiteList/addAll
         * supportlottype=all&level=600&userno=2017110900121744&productname=qmcp&memo=888&id=2057065&type=1&status=0
         */
+        String url;
+        if (userno.contains("Y")){
+            url = "http://192.168.50.35:8080/lottery-order/betWhiteList/addAll";
+        }else{
+            url = "http://192.168.1.35:8080/lottery-order/betWhiteList/addAll";
+        }
         String message = "supportlottype=all&level="+level+"&userno="+userno+"&productname="+productname+"&memo=测试&&type=1&status=1";
-        String url = "http://192.168.1.35:8080/lottery-order/betWhiteList/addAll";
         System.out.println(tp.transport(url,message));
     }
     /*用户加钱接口，模拟的是mgr的人工充值过程*/
+
+    @RequestMapping(value={"/addInfo"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
     public  void addMoney(String userno,String forDraw,String amount){
         //貌似account没有直接给用户加钱的接口，有也特么的需要payid  我哪有啊
-        String url = "http://192.168.1.35:8080/lottery-account/userAccountAdd/addMoney";
-        String url1 = "http://192.168.1.35:8080/lottery-account/userAccountAdd/audit";
+        String url;
+        String url1;
+        if (userno.contains("Y")){
+            url = "http://192.168.30.35:8080/lottery-account/userAccountAdd/addMoney";
+            url1 = "http://192.168.30.35:8080/lottery-account/userAccountAdd/audit";
+        }else{
+            url = "http://192.168.1.35:8080/lottery-account/userAccountAdd/addMoney";
+            url1 = "http://192.168.1.35:8080/lottery-account/userAccountAdd/audit";
+        }
         //1是可以提现，0是不可以提现，amount的分的单位
         String message = "userno="+userno+"&amount="+amount+"&forDraw="+forDraw+"&creator=chen&memo=test&type=0";
         String resp = tp.transport(url,message);
@@ -169,6 +184,19 @@ public class easyFun {
         System.out.println(resp);
     }
 
+    /*用户绑定手机号*/
+    public void bindPhone(String userno,String phoneno,String productName){
+        String url;
+        if (userno.contains("Y")){
+            url = "http://192.168.30.35:8080/lottery-account//user/bangding";
+        }else{
+            url = "http://192.168.1.35:8080/lottery-account//user/bangding";
+        }
+        String message = "phoneno="+phoneno+"&productName="+productName+"&uuid"+userno;
+        String resp = tp.transport(url,message);
+        System.out.println(resp);
+    }
+
 
     /*注册N多个的用户*/
     public void registerN(String username,int num,String password,String productName) {
@@ -186,13 +214,14 @@ public class easyFun {
     public static void main(String args[]){
         easyFun ez = new easyFun();
         //记得看,记得最大限制500
-        ez.registerN("xpftestjoin",100,"123456","yccp");
+        ez.registerN("xpftestteam",100,"123456","yccp");
 
         /*ez.inserIntoWhite("20180205Z00038499","300","ltcp");
         JSONObject s = ez.StringToJson("{\"errorCode\":\"0000\",\"message\":\"查询成功\",\"result\":{\"batchCode\":\"2018018\",\"remainSeconds\":\"204568\",\"forwardEndTime\":\"2100\",\"endBetTimeFormat\":\"02-11（周日）19:25\"}}");
         String s1 = s.getJSONObject("result").getString("batchCode");
         System.out.println(s1);*/
-//       ez.addMoney("20180202Z00033474","1","1200032");
+//       ez.addMoney("20180523Z00332749","0","1200032");
+//       ez.addMoney("20180523Z00332750","1","1200032");
 //        ez.deductMoney("20180417Z00170474");
         }
-        }
+}
