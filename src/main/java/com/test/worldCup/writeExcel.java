@@ -1,6 +1,8 @@
 package com.test.worldCup;
 
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 
@@ -65,15 +67,15 @@ public class writeExcel {
             int oddsint;
             //查找文件中的odds名称的sheet的位置，如果找不到是-1,
             if(hasRead.size() > 1) {
-                oddsint = Integer.parseInt(hasRead.get(-1)[0]);
+                oddsint = Integer.parseInt(hasRead.get(hasRead.size()-1)[0]);
             }else{
                 oddsint = -1 ;
             }
             // 如果找到了名称为odds的sheet
             if(oddsint >= 0 && hasRead.size() > 0){
-                /**xsssht = xsswb.getSheetAt(oddsint);*/
+                xsssht = xsswb.getSheetAt(oddsint);
                 //获取该sheet共有多少行
-                int rowNum = Integer.parseInt(hasRead.get(-1)[1]);
+                int rowNum = Integer.parseInt(hasRead.get(hasRead.size()-1)[1]);
                 for(int i=0; i<rowNum; i++){
                     //获取该行共有多少cell
                     /**int colNum = xsssht.getRow(i).getPhysicalNumberOfCells();*/
@@ -100,7 +102,6 @@ public class writeExcel {
                     }
                 }
             }
-
             xsswb.write(os);
             xsswb.close();
             os.close();
@@ -108,8 +109,6 @@ public class writeExcel {
             System.out.println(e);
         }
     }
-
-
 
     public List<String[]> xssReadExcel(String  filename){
         List<String[]> value = new ArrayList();

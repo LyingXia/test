@@ -1,0 +1,2 @@
+[MASTER] 10:56:11.196 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize net.sf.json.util.PropertySetStrategy: net/sf/json/util/PropertySetStrategy$DefaultPropertySetStrategy
+[MASTER] 10:56:11.761 [pool-2-thread-1] ERROR JUnitAnalyzer - Ran out of time while checking tests

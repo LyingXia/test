@@ -1,0 +1,2 @@
+[MASTER] 11:09:04.976 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize org.openqa.selenium.logging.LoggingHandler: com/google/common/collect/Lists
+[MASTER] 11:09:04.986 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize com.google.common.collect.RegularImmutableBiMap$Inverse: com/google/common/collect/RegularImmutableBiMap$Inverse$InverseEntrySet

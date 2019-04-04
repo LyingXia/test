@@ -1,0 +1,9 @@
+[MASTER] 10:58:32.510 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize org.openqa.selenium.logging.profiler.ProfilerLogEntry: org/openqa/selenium/logging/LogEntry$1
+[MASTER] 10:58:32.785 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize com.google.common.collect.Maps$BiMapConverter: com/google/common/base/Converter$FunctionBasedConverter
+[MASTER] 10:58:32.841 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize com.google.common.collect.RegularImmutableBiMap$Inverse: com/google/common/collect/RegularImmutableBiMap$Inverse$InverseEntrySet
+[MASTER] 10:58:33.414 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize com.google.common.collect.ImmutableMultimap: com/google/common/collect/ImmutableMultimap$1
+[MASTER] 10:58:33.450 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize com.google.common.collect.ImmutableSetMultimap: com/google/common/collect/ImmutableMultimap$2
+[MASTER] 10:58:33.485 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize org.openqa.selenium.logging.LocalLogs: org/openqa/selenium/logging/LocalLogs$1
+[MASTER] 10:58:34.042 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize com.google.common.collect.ImmutableMultimap: com/google/common/collect/ImmutableMultiset
+[MASTER] 10:58:34.096 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize com.google.common.collect.ImmutableSetMultimap: com/google/common/collect/ImmutableMultimap$Keys
+[MASTER] 10:58:34.135 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize org.openqa.selenium.logging.LocalLogs: org/openqa/selenium/logging/HandlerBasedLocalLogs

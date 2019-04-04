@@ -2,7 +2,9 @@ package com.test.sometest;
 
 public class Main {
 
-    public static void main(String[] args) {
+
+
+    public static void main(String[] args) throws Exception {
 
   /*      System.out.println("Hello World!");
         Cat cat=new Cat();
@@ -22,9 +24,6 @@ public class Main {
         System.out.println(BigDecimal.ZERO);
         System.out.println(drawBalance);
         System.out.println(drawBalance.compareTo(BigDecimal.ZERO));*/
-
-
-        String dailyLottery_url = "192.168.30.36:8080/cardGame/activity/dailyLottery";
 
     }
 }

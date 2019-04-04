@@ -1,0 +1,6 @@
+[MASTER] 10:37:22.827 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize net.sf.json.JsonConfig: net/sf/json/processors/DefaultValueProcessorMatcher
+[MASTER] 10:37:23.170 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize net.sf.json.JsonConfig: net/sf/json/processors/DefaultValueProcessorMatcher$DefaultDefaultValueProcessorMatcher
+[MASTER] 10:37:23.537 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize net.sf.json.JsonConfig: net/sf/json/processors/JsonBeanProcessorMatcher
+[MASTER] 10:37:24.132 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize net.sf.json.JsonConfig: net/sf/json/processors/JsonBeanProcessorMatcher$DefaultJsonBeanProcessorMatcher
+[MASTER] 10:37:24.517 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize net.sf.json.JsonConfig: net/sf/json/processors/JsonValueProcessorMatcher
+[MASTER] 10:37:24.973 [pool-2-thread-1] ERROR ClassStateSupport - Could not initialize net.sf.json.JsonConfig: net/sf/json/processors/JsonValueProcessorMatcher$DefaultJsonValueProcessorMatcher

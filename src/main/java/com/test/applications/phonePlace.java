@@ -17,7 +17,8 @@ public class phonePlace {
 
         /*设置要启动的浏览器的位置*/
 //        System.setProperty("webdriver.firefox.bin","D:\\Mozilla Firefox\\firefox.exe");
-        System.setProperty("webdriver.chrome.driver","D:\\work\\file\\这个文件夹 今天开始属于我\\新人工作常用软件\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","D:\\work\\environment\\selenium-java\\chromedriver.exe");
+        System.out.println("s");
 
 //        WebDriver driver = new FirefoxDriver();
         WebDriver driver = new ChromeDriver();
@@ -49,6 +50,6 @@ public class phonePlace {
     }
     public static void main(String[] args) {
         phonePlace test =new phonePlace();
-        test.search("http://www.baidu.com");
+        test.search("https://www.baidu.com");
     }
 }

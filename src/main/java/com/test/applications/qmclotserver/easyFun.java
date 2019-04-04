@@ -214,13 +214,13 @@ public class easyFun {
     public static void main(String args[]){
         easyFun ez = new easyFun();
         //记得看,记得最大限制500
-        ez.registerN("xpftestteam",100,"123456","yccp");
+//        ez.registerN("xpftestteam",100,"123456","ltcp");
 
         /*ez.inserIntoWhite("20180205Z00038499","300","ltcp");
         JSONObject s = ez.StringToJson("{\"errorCode\":\"0000\",\"message\":\"查询成功\",\"result\":{\"batchCode\":\"2018018\",\"remainSeconds\":\"204568\",\"forwardEndTime\":\"2100\",\"endBetTimeFormat\":\"02-11（周日）19:25\"}}");
         String s1 = s.getJSONObject("result").getString("batchCode");
         System.out.println(s1);*/
-//       ez.addMoney("20180523Z00332749","0","1200032");
+       ez.addMoney("20180111Z00230754","0","1200032");
 //       ez.addMoney("20180523Z00332750","1","1200032");
 //        ez.deductMoney("20180417Z00170474");
         }

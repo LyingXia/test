@@ -28,7 +28,7 @@ public class testaes {
             10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30,
             31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1 };
 
-    public static final String aesKey = "q8%m9sf^d3w<49_#";
+    public static final String aesKey = "thisiskey";
 
     public static byte[] aesEncrypt(byte[] input, int offset, int length, String aesKey)
             throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException
@@ -99,7 +99,7 @@ public class testaes {
 
     public static  void  main(String []args) throws Exception {
         //这个是Lottery-order和Chargecneter用的KEY
-        String key = "q8%m9sf^d3w<49_#";
+        String key = "thisiskey";
         String code = "6LEoDdwjO1AwNoL3FzQgq7C6Lf4qJ7fAgeYdeRoZBfM=";
         String code1 = "110228199309083814";
         System.out.println(encrypt(code1,key));

@@ -41,4 +41,11 @@ public class testPost {
         }
         return sb.toString();
     }
+
+    public static void main(String[] args) {
+        testPost tp = new testPost();
+        String url = "http://192.168.30.36:8080/cardGame/eventTicket/getMatchDetail";
+        String message = "parameter={\"command\":\"eventTicket/getMatchDetail\",\"userno\":\"20180503Y00146738\",\"matchId\":\"29\",\"token\":\"\",\"imei\":\"\",\"platform\":\"html\",\"version\":\"\",\"productName\":\"yccp\",\"sourceFrom\":\"\"}";
+        System.out.println(tp.transport(url,message));
+    }
 }

@@ -10,7 +10,7 @@ public class testSelenium {
 
         /*设置要启动的浏览器的位置*/
 //        System.setProperty("webdriver.firefox.bin","D:\\Mozilla Firefox\\firefox.exe");
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","D:\\work\\environment\\selenium-java\\chromedriver.exe");
 
 //        WebDriver driver = new FirefoxDriver();
         WebDriver driver = new ChromeDriver();
@@ -18,6 +18,11 @@ public class testSelenium {
        /*设置url*/
         driver.get(testurl);
 //      driver.quit();
+    }
+
+    public static void main(String[] args) {
+        testSelenium test = new testSelenium();
+        test.testsele("www.baidu.com");
     }
 }
 

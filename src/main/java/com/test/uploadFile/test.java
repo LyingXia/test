@@ -37,4 +37,5 @@ public class test {
         String os = sf.winOrLin();
         System.out.println(os);
     }
+
 }
